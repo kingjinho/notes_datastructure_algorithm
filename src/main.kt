@@ -1,10 +1,11 @@
+import Sort.performMergeSort
 import Sort.performSelectionSort
 
 fun main() {
-
-    var i = 5
-    var arr = performSelectionSort(arrayOf(1,5,8,5,4,3,1,7,5))
+    var initialArr = intArrayOf(1,5,9,4,3,8)
+    var arr = performMergeSort(initialArr, 0, initialArr.size - 1)
     for (i in arr) {
         println(i)
     }
+
 }
