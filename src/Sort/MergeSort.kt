@@ -4,7 +4,7 @@ fun performMergeSort(arr: IntArray, low: Int, high: Int): IntArray {
     if (low < high && high - low > 0) {
         var middle = low + (high - low) / 2
         var arrLow = performMergeSort(arr.copyOfRange(low, middle + 1), 0, middle)
-        var arrHigh = performMergeSort(arr.copyOfRange(middle + 1, high + 1), 0, high - middle)
+        var arrHigh = performMergeSort(arr.copyOfRange(middle + 1, high + 1), 0, high - middle - 1)
 
         return merge(arrLow, arrHigh)
     }
@@ -32,12 +32,12 @@ fun merge(arrLow: IntArray, arrHigh: IntArray): IntArray {
     if (curIdxForArrLow == arrLow.size) {
         for (num in curIdxForArrHigh until arrHigh.size) {
             arrResult[curIdxForArrResult] = arrHigh[curIdxForArrHigh]
-            curIdxForArrResult ++
+            curIdxForArrResult++
         }
     } else if (curIdxForArrHigh == arrLow.size) {
         for (num in curIdxForArrLow until arrLow.size) {
             arrResult[curIdxForArrResult] = arrHigh[curIdxForArrLow]
-            curIdxForArrResult ++
+            curIdxForArrResult++
         }
     }
     return arrResult
