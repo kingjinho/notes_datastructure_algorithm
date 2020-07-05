@@ -15,11 +15,11 @@ private fun getLastPivotIndex(arr: IntArray, idxLow: Int, idxHigh: Int): Int {
     var lastIdxSmallerThanPivot = idxLow - 1
     if (idxHigh > idxLow) {
         val idxPivot = Random.nextInt(idxLow, idxHigh + 1)
-        val temp = arr[idxPivot]
+        val valueAtIdxPivot = arr[idxPivot]
         arr[idxPivot] = arr[idxHigh]
-        arr[idxHigh] = temp
+        arr[idxHigh] = valueAtIdxPivot
         for (num in idxLow..idxHigh) {
-            if (arr[num] <= temp) {
+            if (arr[num] <= valueAtIdxPivot) {
                 lastIdxSmallerThanPivot++
                 val temp = arr[num]
                 arr[num] = arr[lastIdxSmallerThanPivot]
