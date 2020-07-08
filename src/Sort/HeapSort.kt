@@ -2,33 +2,35 @@ package Sort
 
 //intArrayOf(1,5,9,4,3,8)
 fun performHeapSort(arr: IntArray, arrMaxIdx: Int) {
-    if (arr.size == arrMaxIdx + 1 && arr.size % 2 == 1) {
-        compareNode(arr, (i - 1) / 2, i, i + 1)
-    }
 
-    for (i in arrMaxIdx downTo 0 step 2) {
-        if (i % 2 == 0) {
-            compareNode(arr, (i - 1) / 2, i, i + 1)
-        } else {
-            compareNode(arr, (i - 2) / 2, i - 1, i)
+    if (arr.size - 1 == arrMaxIdx) {
+        if (arr[arrMaxIdx] > arr[(arrMaxIdx - 1) / 2]) {
+            val temp = arr[arrMaxIdx]
+            arr[arrMaxIdx] = arr[(arrMaxIdx - 1) / 2]
+            arr[(arrMaxIdx - 1) / 2] = temp
         }
     }
+
+    for (i in arrMaxIdx - 2 downTo 1 step 2)
+        compareAndSwapNode(arr, (i - 1) / 2, i, i + 1)
+
     val temp = arr[0]
     arr[0] = arr[arrMaxIdx]
     arr[arrMaxIdx] = temp
 
-    performHeapSort(arr, arrMaxIdx - 1)
+    if (arrMaxIdx >= 3)
+        performHeapSort(arr, arrMaxIdx - 1)
 }
 
-fun compareNode(arr: IntArray, idxParent: Int, idxChildLeft: Int, idxChildRight: Int) {
+fun compareAndSwapNode(arr: IntArray, idxParent: Int, idxChildLeft: Int, idxChildRight: Int) {
     val valueAtIdxParent = arr[idxParent]
     val valueAtIdxChildLeft = arr[idxChildLeft]
     val valueAtIdxChildRight = arr[idxChildRight]
 
     if (valueAtIdxParent < valueAtIdxChildLeft && valueAtIdxParent < valueAtIdxChildRight) {
-        val temp = if (valueAtIdxChildLeft < valueAtIdxChildRight) valueAtIdxChildRight else valueAtIdxChildLeft
-        arr[idxParent] = temp
-        arr[if (valueAtIdxChildLeft < valueAtIdxChildRight) idxChildLeft else idxChildRight] = valueAtIdxParent
+        val tempLarger = if (valueAtIdxChildLeft < valueAtIdxChildRight) valueAtIdxChildRight else valueAtIdxChildLeft
+        arr[if (valueAtIdxChildLeft < valueAtIdxChildRight) idxChildRight else idxChildLeft] = valueAtIdxParent
+        arr[idxParent] = tempLarger
 
     } else if (valueAtIdxParent in valueAtIdxChildLeft until valueAtIdxChildRight) {
         arr[idxParent] = valueAtIdxChildRight
