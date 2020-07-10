@@ -3,11 +3,12 @@ package Sort
 //intArrayOf(1,5,9,4,3,8)
 fun performHeapSort(arr: IntArray, arrMaxIdx: Int) {
 
-    if (arr.size - 1 == arrMaxIdx) {
-        if (arr[arrMaxIdx] > arr[(arrMaxIdx - 1) / 2]) {
+    if (arr.size - 1 == arrMaxIdx || arrMaxIdx == 1) {
+        val idxParent = (arrMaxIdx - 1) / 2
+        if (arr[arrMaxIdx] > arr[idxParent]) {
             val temp = arr[arrMaxIdx]
-            arr[arrMaxIdx] = arr[(arrMaxIdx - 1) / 2]
-            arr[(arrMaxIdx - 1) / 2] = temp
+            arr[arrMaxIdx] = arr[idxParent]
+            arr[idxParent] = temp
         }
     }
 
@@ -18,27 +19,27 @@ fun performHeapSort(arr: IntArray, arrMaxIdx: Int) {
     arr[0] = arr[arrMaxIdx]
     arr[arrMaxIdx] = temp
 
-    if (arrMaxIdx >= 3)
+    if (arrMaxIdx >= 2)
         performHeapSort(arr, arrMaxIdx - 1)
 }
 
-fun compareAndSwapNode(arr: IntArray, idxParent: Int, idxChildLeft: Int, idxChildRight: Int) {
-    val valueAtIdxParent = arr[idxParent]
-    val valueAtIdxChildLeft = arr[idxChildLeft]
-    val valueAtIdxChildRight = arr[idxChildRight]
+fun compareAndSwapNode(arr: IntArray, idxParent: Int, idxLeftChild: Int, idxRightChild: Int) {
+    val valueAtParent = arr[idxParent]
+    val valueAtLeftChild = arr[idxLeftChild]
+    val valueAtRightChild = arr[idxRightChild]
 
-    if (valueAtIdxParent < valueAtIdxChildLeft && valueAtIdxParent < valueAtIdxChildRight) {
-        val tempLarger = if (valueAtIdxChildLeft < valueAtIdxChildRight) valueAtIdxChildRight else valueAtIdxChildLeft
-        arr[if (valueAtIdxChildLeft < valueAtIdxChildRight) idxChildRight else idxChildLeft] = valueAtIdxParent
+    if (valueAtParent < valueAtLeftChild && valueAtParent < valueAtRightChild) {
+        val tempLarger = if (valueAtLeftChild < valueAtRightChild) valueAtRightChild else valueAtLeftChild
+        arr[if (valueAtLeftChild < valueAtRightChild) idxRightChild else idxLeftChild] = valueAtParent
         arr[idxParent] = tempLarger
 
-    } else if (valueAtIdxParent in valueAtIdxChildLeft until valueAtIdxChildRight) {
-        arr[idxParent] = valueAtIdxChildRight
-        arr[idxChildRight] = valueAtIdxParent
+    } else if (valueAtParent in valueAtLeftChild..valueAtRightChild) {
+        arr[idxParent] = valueAtRightChild
+        arr[idxRightChild] = valueAtParent
 
-    } else if (valueAtIdxParent in valueAtIdxChildRight until valueAtIdxChildLeft) {
-        arr[idxParent] = valueAtIdxChildLeft
-        arr[idxChildRight] = valueAtIdxChildLeft
+    } else if (valueAtParent in valueAtRightChild..valueAtLeftChild) {
+        arr[idxParent] = valueAtLeftChild
+        arr[idxLeftChild] = valueAtParent
     }
 
 }
