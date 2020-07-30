@@ -1,4 +1,4 @@
-import java.util.*
+package Algorithms
 
 fun main() {
 
@@ -11,7 +11,7 @@ fun main() {
 
 fun getCount(num: Int): Int {
     return if(num > 1)
-        num *  getCount(num - 1)
+        num * getCount(num - 1)
     else
         1
 }

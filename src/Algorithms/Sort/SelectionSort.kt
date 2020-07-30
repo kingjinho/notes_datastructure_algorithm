@@ -1,4 +1,4 @@
-package Sort
+package Algorithms.Sort
 
 //1,5,8,5,4,3,1,7,5
 fun performSelectionSort(arr: Array<Int>): Array<Int> {

@@ -1,4 +1,4 @@
-package Sort
+package Algorithms.Sort
 
 fun performInsertionSort(arr: IntArray) {
     for (i in 1 until arr.size) {
