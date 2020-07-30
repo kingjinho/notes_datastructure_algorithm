@@ -1,0 +1,4 @@
+package DataStructures
+
+class Arrays {
+}
