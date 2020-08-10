@@ -1,4 +1,3 @@
-package Sort
 
 fun performShellSort(arr: IntArray, distance: Int) {
 
