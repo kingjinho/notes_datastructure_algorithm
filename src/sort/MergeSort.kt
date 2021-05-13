@@ -1,4 +1,4 @@
-package Sort
+package sort
 
 fun performMergeSort(arr: IntArray, low: Int, high: Int): IntArray {
     if (low < high && high - low > 0) {

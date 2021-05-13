@@ -1,4 +1,4 @@
-package Sort
+package sort
 
 //intArrayOf(1,5,9,4,3,8)
 fun performHeapSort(arr: IntArray, arrMaxIdx: Int) {
