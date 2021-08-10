@@ -1,20 +1,20 @@
 package dataStructure.stack
 
 class StackWithLinkedList<T> {
-    inner class Node<T>(val data: T) {
-        var next: Node<T>? = null
+    inner class Node<T>(val value: T) {
+        var prev: Node<T>? = null
     }
 
     private var top: Node<T>? = null
 
-    fun push(data: T) {
-        val node = Node(data)
+    fun push(value: T) {
+        val node = Node(value)
         if (isEmpty()) {
             top = node
         } else {
             //remember, Stack is LIFO
             //every time new element is added, current top element becomes a previous top
-            node.next = top
+            node.prev = top
             top = node
         }
     }
@@ -22,8 +22,8 @@ class StackWithLinkedList<T> {
     fun pop(): T {
         //LIFO
         if(isEmpty()) throw NoSuchElementException()
-        val result = top!!.data
-        top = top?.next
+        val result = top!!.value
+        top = top?.prev
         return result
     }
 
@@ -31,7 +31,7 @@ class StackWithLinkedList<T> {
 
     fun peek(): T {
         if (isEmpty()) throw NoSuchElementException()
-        return top!!.data
+        return top!!.value
     }
 
 }
