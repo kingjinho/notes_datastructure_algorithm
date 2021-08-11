@@ -1,4 +1,4 @@
-package dataStructure.stack
+package data_structure.stack
 
 class StackWithLinkedList<T> {
     inner class Node<T>(val value: T) {

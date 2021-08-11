@@ -1,4 +1,4 @@
-package dataStructure.queue
+package data_structure.queue
 
 import java.lang.Exception
 

@@ -1,6 +1,4 @@
-package dataStructure.queue
-
-import java.lang.Exception
+package data_structure.queue
 
 class QueueWithArrayWithIssue {
 

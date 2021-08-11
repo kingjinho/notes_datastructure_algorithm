@@ -1,4 +1,4 @@
-package dataStructure.stack
+package data_structure.stack
 
 class StackWithArray {
     private val size = 1000

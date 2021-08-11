@@ -1,4 +1,4 @@
-package dataStructure.list
+package data_structure.list
 
 import java.lang.IndexOutOfBoundsException
 
