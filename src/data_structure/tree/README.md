@@ -59,7 +59,7 @@ class BinaryTree<T>(private var data: T?) {
 ### Implementation
 
 1. Basic Operation of Binary Trees
-   - Traverse (Current Node, Left Child Node, Right Child Node) through recursion
+   - Traverse (3 main steps: Current Node, Left Child Node, Right Child Node) through recursion
    - Insert
    - Delete
    - Search
@@ -69,7 +69,12 @@ class BinaryTree<T>(private var data: T?) {
    - Preorder(DLR)
      - Process Root, Left Child Node, Right Child Node proceed further through recursion
    - Inorder(LDR)
+     - Left Child Node, Root Node and Right Child Node
    - Postorder(LRD)
+      - Left Child Node, Right Child Node and Root
+   - Additional 
+      - Level Order : From Breadth First Traversal(BFS Algorithm)
+         - Root, process all nodes at the same level, repeat until it's done
    
 
 
