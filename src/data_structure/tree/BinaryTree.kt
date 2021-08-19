@@ -43,10 +43,6 @@ class BinaryTree<T>(private var data: T?) {
         postOrderTraversal(this)
     }
 
-    fun levelOrderTraversal() {
-        levelOrderTraversal(this)
-    }
-
     private fun preOrderTraversal(node: BinaryTree<T>?) {
         if (node != null) {
             println(node.data)
@@ -71,16 +67,43 @@ class BinaryTree<T>(private var data: T?) {
         }
     }
 
-    private fun levelOrderTraversal(node: BinaryTree<T>?) {
-        if(node == this) {
-            println(node.data)
+
+    fun levelOrderTraversal() {
+        //maximum height from root to the furthest leaf node
+        val height = height(this)
+
+        for (i in 1..height) {
+            printCurrentLevel(this, i)
         }
-        var left = node?.left
-        var right = node?.right
-        println(left?.data)
-        println(right?.data)
-        levelOrderTraversal(left)
-        levelOrderTraversal(right)
     }
 
+    private fun height(root: BinaryTree<T>?): Int {
+        return if (root == null) {
+            0
+        } else {
+            val lHeight = height(root.left)
+            val rHeight = height(root.right)
+
+            if (lHeight > rHeight) {
+                lHeight + 1
+            } else {
+                rHeight + 1
+            }
+        }
+    }
+
+    private fun printCurrentLevel(node: BinaryTree<T>?, level: Int) {
+        when {
+            node == null -> {
+                return
+            }
+            level == 1 -> {
+                println(node.data)
+            }
+            level > 1 -> {
+                printCurrentLevel(node.left, level - 1)
+                printCurrentLevel(node.right, level - 1)
+            }
+        }
+    }
 }
