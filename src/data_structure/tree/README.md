@@ -1,6 +1,6 @@
 # Tree
 
-### What is tree?
+## What is tree?
 1. `non-linear data structure`(not stored in sequential manner, cannot traverse every element in a single run)
 2. Data is `stored hierarchically`
 3. Recursive style
@@ -26,7 +26,7 @@
 
 
 
-### Examples of trees
+## Examples of trees
 - Family tree
 - Organization Structure
 - DOM tree in HTML  
@@ -34,9 +34,9 @@
     - From home, we have 3 routes, and each route has another 2 routes, and each has another 5 routes to destination!
 
 
-### Types of trees
+## Types of trees
 
-1. Binary Tree
+### Binary Tree
     - Each node has at most 2 children
     - `Strict binary tree:` each node has either 0 or 2 children
     - `Full binary tree:` each node has 2 children + all leaves are at the same level
@@ -56,7 +56,7 @@ class BinaryTree<T>(private var data: T?) {
 
 
 
-### Implementation
+#### Implementation of Binary Tree
 
 1. Basic Operation of Binary Trees
    - Traverse (3 main steps: Current Node, Left Child Node, Right Child Node) through recursion
@@ -78,6 +78,41 @@ class BinaryTree<T>(private var data: T?) {
    
 
 
+---
+
+### Binary Search Trees
+
+- Binary Trees
+- Mainly used for searching
+- `Impose restriction` on what can be stored
+- O(log n) for wost case average search operation
+
+
+- Property of Binary Search Trees (`Restriction`)
+    - Left subtree data < root node data
+    - Right subtree data > root node data
+    - Meaning `this is a sorted data structure`
+    - Left and Right subtree should also be binary search trees
+    - `Same as regular binary trees, but this times a restricion on data`
+    
+
+- Operations on Binary Search Trees
+    - Find min/max
+    - Insert
+    - Delete and others
+    - Find element
+
+
+- Things to know about Binary Search Trees
+    - Inorder traversal(LDR) of Binary Search tree :point_right: sorted list
+    - Skip searching when element we search is less than left or right trees
+        - Saving time
+    - Basic operations take time proportional to the height of the tree
+
+
+
 
 ### Links
 [Everything you need to know about tree data structures](https://www.freecodecamp.org/news/all-you-need-to-know-about-tree-data-structures-bceacb85490c/)
+
+[Data Structure and Algorithms Made Easy](https://www.google.com/search?q=data+structures+and+algorithms+made+easy)
