@@ -91,6 +91,8 @@ class BinaryTree<T>(private var data: T?) {
 - Property of Binary Search Trees (`Restriction`)
     - Left subtree data < root node data
     - Right subtree data > root node data
+    - `Above does not mean that root has to be the biggest numbers!!!`
+    - Has distinct value(what is duplicates?)
     - Meaning `this is a sorted data structure`
     - Left and Right subtree should also be binary search trees
     - `Same as regular binary trees, but this times a restricion on data`

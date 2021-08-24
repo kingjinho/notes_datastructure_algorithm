@@ -17,7 +17,7 @@ class BinaryTree<T>(private var data: T?) {
 
     fun setLeft(value: T?) {
         val left = BinaryTree(value)
-        this.left = left
+        setLeft(left)
     }
 
     fun getRight() = right
@@ -27,7 +27,7 @@ class BinaryTree<T>(private var data: T?) {
 
     fun setRight(value: T?) {
         val right = BinaryTree(value)
-        this.right = right
+        setRight(right)
     }
 
 
