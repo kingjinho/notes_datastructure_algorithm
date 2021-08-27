@@ -1,5 +1,6 @@
 package data_structure.tree
 
+
 class BinarySearchTree(private var data: Int?) {
 
     private var left: BinarySearchTree? = null
@@ -11,7 +12,11 @@ class BinarySearchTree(private var data: Int?) {
     }
 
     fun add(value: Int) {
-        add(this, value)
+        if (data == null) {
+            data = value
+        } else {
+            add(this, value)
+        }
     }
 
     private fun add(node: BinarySearchTree, value: Int) {
@@ -36,26 +41,75 @@ class BinarySearchTree(private var data: Int?) {
     }
 
     fun remove(value: Int) {
-        val node = BinarySearchTree(value)
-        //add(node)
+        remove(this, value)
+    }
+
+    private fun remove(node: BinarySearchTree?, value: Int): BinarySearchTree? {
+        if (node == null) {
+            return null
+        }
+
+        if (node.data!! > value) {
+            node.left = remove(node.left, value)
+            return node
+        } else if (node.data!! < value) {
+            node.right = remove(node.right, value)
+            return node
+        }
+
+        when {
+            node.left == null -> {
+                return node.right
+            }
+            node.right == null -> {
+                return node.left
+            }
+            else -> {
+                var parent = node
+
+                // Find successor
+                var succ = node.right
+
+                while (succ?.left != null) {
+                    parent = succ
+                    succ = succ.left
+                }
+
+                // Delete successor. Since successor
+                // is always left child of its parent
+                // we can safely make successor's right
+                // right child as left of its parent.
+                // If there is no succ, then assign
+                // succ->right to parent->right
+
+                if (parent !== node) parent?.left = succ?.right else parent.right = succ?.right
+
+                // Copy Successor Data to root
+
+                // Copy Successor Data to root
+                node.data = succ?.data
+
+                return node
+            }
+        }
+
     }
 
     fun find(value: Int): BinarySearchTree? {
         return find(this, value)
     }
 
+
     private fun find(node: BinarySearchTree?, value: Int): BinarySearchTree? {
         if (node?.left == null && node?.right == null) {
             return null
         }
-        val left = node.left
-        val right = node.right
         return when {
             node.data!! > value -> {
-                find(left, value)
+                find(node.left, value)
             }
             node.data!! < value -> {
-                find(right, value)
+                find(node.right, value)
             }
             else -> {
                 node
@@ -63,16 +117,40 @@ class BinarySearchTree(private var data: Int?) {
         }
     }
 
+    fun maxValue(): Int {
+        if (right == null && left == null) {
+            return data!!
+        }
+        var node: BinarySearchTree? = this
+        while (node?.right != null) {
+            node = node.right
+        }
+        return node?.data!!
+    }
+
+
+    fun minValue(): Int {
+        if (right == null && left == null) {
+            return data!!
+        }
+        var node: BinarySearchTree? = this
+        while (node?.left != null) {
+            node = node.left
+        }
+        return node?.left!!
+    }
+
     fun inOrderTraversal() {
         inOrderTraversal(this)
     }
 
     private fun inOrderTraversal(node: BinarySearchTree?) {
-        if (node != null) {
-            inOrderTraversal(node.left)
-            println(node.data)
-            inOrderTraversal(node.right)
+        if (node == null) {
+            return
         }
+        inOrderTraversal(node.left)
+        println(node.data)
+        inOrderTraversal(node.right)
     }
 
 }
