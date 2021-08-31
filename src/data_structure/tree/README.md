@@ -112,7 +112,27 @@ class BinaryTree<T>(private var data: T?) {
     - Basic operations take time proportional to the height of the tree
 
 
-
+- Delete
+    - More complicate than other operations
+        - Element to be deleted may be either leaf or not
+    - Consider some cases
+        - When it is leaf :point_right: set null
+        - What it is not leaf :point_right: one it has only one child, or 2 children
+    1. One child
+       - Set child to parent node
+    2. 2 Children
+        - `Set the smallest value from the right node`
+        - `Set the largest value from the left node`
+        - `Reason?`
+            - In Binary Search Tree, One primary condition that has to be applied for every node is
+    `Left node must be less than parent, while right node must be greater than parent`
+            - all nodes stemming from left is smaller than parent no matter what
+            - all nodes stemming from right is greater than parent no matter what
+            - The smallest from the right, the largest from the left are the ones that are close to
+    parent the most
+    
+    
+        
 
 ### Links
 [Everything you need to know about tree data structures](https://www.freecodecamp.org/news/all-you-need-to-know-about-tree-data-structures-bceacb85490c/)
