@@ -39,7 +39,7 @@ class HashMap<K, V> {
 
     fun get(key: K) {
         val hash = key.hashCode()
-        val index =
+
     }
 
     private fun increaseBucket() {
