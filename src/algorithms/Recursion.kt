@@ -1,9 +1,9 @@
-import java.util.*
+package algorithms
 
 fun main() {
 
-    var i = 10;
-    var cntElement: Int = getCount(i)
+    val i = 10
+    val cntElement: Int = getCount(i)
 
     print(cntElement)
 
@@ -11,7 +11,7 @@ fun main() {
 
 fun getCount(num: Int): Int {
     return if(num > 1)
-        num *  getCount(num - 1)
+        num * getCount(num - 1)
     else
         1
 }
