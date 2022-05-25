@@ -97,7 +97,7 @@ class LinkedList<T> {
                 while(--lastIndex > 1) {
                     prev = head.next
                 }
-                var next = prev?.next?.next
+                val next = prev?.next?.next
                 prev?.next = next
             }
         }
