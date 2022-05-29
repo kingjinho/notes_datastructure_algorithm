@@ -1,10 +1,10 @@
-package algorithms
+package algorithms.recursive
 
 fun getFibonacci(nth: Int, memo: IntArray): Int {
     if (memo[nth] != 0) {
         return memo[nth]
     }
-    var result : Int = if (nth == 1 || nth == 2)
+    val result : Int = if (nth == 1 || nth == 2)
         1
     else
         getFibonacci(
