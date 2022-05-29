@@ -9,10 +9,10 @@
         - Why does stack frame exist?
             - To save data using
         - in Tail call case, a function has no further execution
-        - thus, tail call does not use data saved in stack frame
+        - thus, tail call does not use data saved in previous stack frame
         - Compiler use optimization to not create stack frame
             - Up to compiler, But jvm does not support tail call optimization
-
+   
 2. Tail Recursive
    - `Factorial recursive is not tail recursive`
     ```kotlin

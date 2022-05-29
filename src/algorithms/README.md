@@ -26,8 +26,8 @@
 
 # O(logN)
 
-- Number of execution converge as the size of input increases
+- Number of execution converges as the size of input increases
 
 # O(NlogN)
 
-- Number of execution converge as the size of input increases
+- Number of execution converges as the size of input increases
