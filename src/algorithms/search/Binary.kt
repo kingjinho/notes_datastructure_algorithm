@@ -1,17 +1,17 @@
 package algorithms.search
 
-fun performBinarySearch(initialArr: Array<Int>, input: Int) : Int? {
+fun binarySearchWhile(arr: Array<Int>, value: Int): Int {
     var low = 0
-    var high = initialArr.size - 1
+    var high = arr.size - 1
 
-    while(low < high){
+    while (low < high) {
         val mid = (low + high) / 2
-        val guess = initialArr[mid]
+        val valueAtMid = arr[mid]
         when {
-            input > guess  -> {
+            value > valueAtMid -> {
                 low = mid + 1
             }
-            input < guess -> {
+            value < valueAtMid -> {
                 high = mid - 1
             }
             else -> {
@@ -19,5 +19,27 @@ fun performBinarySearch(initialArr: Array<Int>, input: Int) : Int? {
             }
         }
     }
-    return null
+    return -1
 }
+
+fun binarySearchRecursive(arr: Array<Int>, left: Int, right: Int, value: Int): Int {
+    val mid = (left + right) / 2
+    return when {
+        left > right -> {
+            -1
+        }
+        arr[mid] > value -> {
+            binarySearchRecursive(arr, left, mid - 1, value)
+        }
+        arr[mid] < value -> {
+            binarySearchRecursive(arr, mid + 1, right, value)
+        }
+        arr[mid] == value -> {
+            mid
+        }
+        else -> {
+            -1
+        }
+    }
+}
+
