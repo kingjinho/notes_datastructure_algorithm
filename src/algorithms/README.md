@@ -32,4 +32,11 @@
 
 - Number of execution converges as the size of input increases
 
+## Notes
 
+- An algorithm that works for every input data is important(general purpose)
+- `However, an algorithm that works for certain type of input data is also necessary`
+  - Specialized
+  - Efficient
+
+  
