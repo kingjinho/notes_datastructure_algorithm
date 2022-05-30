@@ -12,22 +12,24 @@
 
 `If an algorithm does not work properly, effciency does not matter`
 
-# O(1)
+## O(1)
 
 - Constant no matter how large the size of input is
 
-# O(n)
+## O(n)
 
 - Increase as the size of the input increases
 
-# O(n2)
+## O(n2)
 
 - Increase to n square as the size of the input increases
 
-# O(logN)
+## O(logN)
 
 - Number of execution converges as the size of input increases
 
-# O(NlogN)
+## O(NlogN)
 
 - Number of execution converges as the size of input increases
+
+
