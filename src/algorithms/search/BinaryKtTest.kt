@@ -16,7 +16,7 @@ class BinaryKtTest {
 
     @Test
     fun binarySearchTest() {
-        val indexOfFive = binarySearchRecursive(array, 0, array.size - 2, 5)
+        val indexOfFive = binarySearchRecursive(array, 0, array.size - 1, 5)
         assert(indexOfFive == 4)
     }
 
