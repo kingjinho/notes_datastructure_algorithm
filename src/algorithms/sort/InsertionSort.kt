@@ -1,14 +1,29 @@
 package algorithms.sort
 
-fun performInsertionSort(arr: IntArray) {
-    for (i in 1 until arr.size) {
-        for (j in (i - 1) downTo 1) {
-            if (arr[j - 1] > arr[j]) {
-                val temp = arr[j - 1]
-                arr[j - 1] = arr[j]
-                arr[j] = temp
-            } else
-                continue
+fun insertionSortAsc(arr: IntArray): IntArray {
+    for (i in arr.indices) {
+        inner@ for (j in i downTo 1) {
+            if (arr[j] >= arr[j - 1]) {
+                break@inner
+            }
+            val temp = arr[j]
+            arr[j] = arr[j - 1]
+            arr[j - 1] = temp
         }
     }
+    return arr
+}
+
+fun insertionSortDesc(arr: IntArray): IntArray{
+    for (i in arr.indices) {
+        inner@ for (j in i downTo 1) {
+            if (arr[j] <= arr[j - 1]) {
+                break@inner
+            }
+            val temp = arr[j]
+            arr[j] = arr[j - 1]
+            arr[j - 1] = temp
+        }
+    }
+    return arr
 }
