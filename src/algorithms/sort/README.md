@@ -45,3 +45,18 @@
 
 ![bubble sort](./res/bubble-sort.gif)
 
+
+## Selection sort
+- The easiest
+- `Not stable because it can possibly move first index with same value to the last`
+- remember index and after each round, swap
+- Select an index which contains smallest(or largest) and swap
+- space, time complexity: same as bubble
+  ![selection sort](./res/selection-sort.gif)
+  
+## Insertion sort
+- Go through the index that had previously visited
+  - While going through index, compare and swap
+- Stable
+  ![insertion sort](./res/insertion-sort.gif)
+  
