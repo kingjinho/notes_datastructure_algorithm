@@ -17,7 +17,7 @@
     - Quick sort
     - Merge sort
     - Heap sort
-    
+
 ## Algorithm comparison
 
 |sort|average|worst|memory|stability|
@@ -30,14 +30,15 @@
 |heap|O(N logN)|O(N logN)|O(1)|X|
 
 ## What algorithm to choose
+
 - Quick in general
 - Simple case: Bubble
 - Can never be slow
     - Merge or Heap
     - These are slower than quick sort, but still O(n logN) on worst case
 
-
 ## Bubble sort
+
 - The easiest
 - Compare adjacent two and sort
 - As iterating through an array, the biggest(or smallest) element will move to the end(or front)
@@ -45,18 +46,25 @@
 
 ![bubble sort](./res/bubble-sort.gif)
 
-
 ## Selection sort
+
 - The easiest
 - `Not stable because it can possibly move first index with same value to the last`
 - remember index and after each round, swap
 - Select an index which contains smallest(or largest) and swap
 - space, time complexity: same as bubble
   ![selection sort](./res/selection-sort.gif)
-  
+
 ## Insertion sort
+
 - Go through the index that had previously visited
-  - While going through index, compare and swap
+    - While going through index, compare and swap
 - Stable
   ![insertion sort](./res/insertion-sort.gif)
-  
+
+## Quick sort
+
+- widely used
+- unstable
+- divide-and-conquer
+- recursive
