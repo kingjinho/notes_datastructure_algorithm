@@ -1,41 +1,33 @@
 package algorithms.sort
 
-//1,5,8,5,4,3,1,7,5
-fun performSelectionSort1(inputArr: Array<Int>): Array<Int> {
 
-    var resultArr = IntArray(inputArr.size)
-    //Method 1 - Using new Array
-    for (i in inputArr.indices) {
-        //key
+fun selectionSortAsc(array: IntArray): IntArray {
+
+    for(i in array.indices) { //starting index
         var smallestIndex = i
-        var smallestNumber = inputArr[i]
-
-        for (j in i until inputArr.size) {
-            if (inputArr[j] < smallestNumber) {
+        for(j in i until array.size) {
+            if(array[smallestIndex] > array[j]) {
                 smallestIndex = j
-                smallestNumber = inputArr[j]
             }
         }
-        resultArr[i] = smallestNumber
+        val temp = array[i]
+        array[i] = array[smallestIndex]
+        array[smallestIndex] = temp
     }
-    return inputArr
+    return array
 }
 
-fun performSelectionSort2(inputArr: Array<Int>): Array<Int> {
-    //method 2
-    for (i in inputArr.indices) {
-        var smallestIndex = i
-        var smallestNumber = inputArr[i]
-        for (j in i until inputArr.size) {
-            if (inputArr[j] < smallestNumber) {
-                smallestIndex = j
-                smallestNumber = inputArr[j]
+fun selectionSortDesc(array: IntArray): IntArray {
+    for(i in array.indices) { //starting index
+        var largestIndex = i
+        for(j in i until array.size) {
+            if(array[largestIndex] < array[j]) {
+                largestIndex = j
             }
         }
-        var temp = inputArr[i]
-        inputArr[i] = smallestNumber
-        inputArr[smallestIndex] = temp
+        val temp = array[i]
+        array[i] = array[largestIndex]
+        array[largestIndex] = temp
     }
-
-    return inputArr
+    return array
 }
