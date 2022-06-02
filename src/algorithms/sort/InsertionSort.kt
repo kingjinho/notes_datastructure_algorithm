@@ -2,9 +2,9 @@ package algorithms.sort
 
 fun insertionSortAsc(arr: IntArray): IntArray {
     for (i in arr.indices) {
-        inner@ for (j in i downTo 1) {
+        for (j in i downTo 1) {
             if (arr[j] >= arr[j - 1]) {
-                break@inner
+                break
             }
             val temp = arr[j]
             arr[j] = arr[j - 1]
@@ -14,11 +14,11 @@ fun insertionSortAsc(arr: IntArray): IntArray {
     return arr
 }
 
-fun insertionSortDesc(arr: IntArray): IntArray{
+fun insertionSortDesc(arr: IntArray): IntArray {
     for (i in arr.indices) {
-        inner@ for (j in i downTo 1) {
+        for (j in i downTo 1) {
             if (arr[j] <= arr[j - 1]) {
-                break@inner
+                break
             }
             val temp = arr[j]
             arr[j] = arr[j - 1]
