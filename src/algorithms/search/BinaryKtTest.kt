@@ -23,7 +23,22 @@ class BinaryKtTest {
 
     @Test
     fun circularBinarySearchTest() {
+        val indexOfOne = binarySearchCircularArray(array, 0, array.size - 1, 1)
+        val indexOfTwo = binarySearchCircularArray(array, 0, array.size - 1, 2)
+        val indexOfThree = binarySearchCircularArray(array, 0, array.size - 1, 3)
+        val indexOfFour = binarySearchCircularArray(array, 0, array.size - 1, 4)
         val indexOfFive = binarySearchCircularArray(array, 0, array.size - 1, 5)
-        assert(indexOfFive == 2)
+        val indexOfSix = binarySearchCircularArray(array, 0, array.size - 1, 6)
+        val indexOfSeven = binarySearchCircularArray(array, 0, array.size - 1, 7)
+        val indexOfEight = binarySearchCircularArray(array, 0, array.size - 1, 8)
+        assert(indexOfOne == 5)
+        assert(indexOfTwo == 6)
+        assert(indexOfThree == 7)
+        assert(indexOfFour == 0)
+        assert(indexOfFive == 1)
+        assert(indexOfSix == 2)
+        assert(indexOfSeven == 3)
+        assert(indexOfEight == 4)
+
     }
 }
