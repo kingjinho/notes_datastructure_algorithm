@@ -11,7 +11,7 @@ class BinaryKtTest {
 
     @Before
     fun setup() {
-        array = arrayOf(1,2,3,4,5,6,7,8,9)
+        array = arrayOf(4,5,6,7,8,1,2,3)
     }
 
     @Test
@@ -20,4 +20,10 @@ class BinaryKtTest {
         assert(indexOfFive == 4)
     }
 
+
+    @Test
+    fun circularBinarySearchTest() {
+        val indexOfFive = binarySearchCircularArray(array, 0, array.size - 1, 5)
+        assert(indexOfFive == 2)
+    }
 }
