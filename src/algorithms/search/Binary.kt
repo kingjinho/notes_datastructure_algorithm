@@ -43,3 +43,33 @@ fun binarySearchRecursive(arr: Array<Int>, left: Int, right: Int, value: Int): I
     }
 }
 
+fun binarySearchCircularArray(arr: Array<Int>, left: Int, right: Int, value: Int): Int {
+    val mid = (left + right) / 2
+
+    return when {
+        left > right -> {
+            -1
+        }
+        arr[mid] == value -> {
+            mid
+        }
+        arr[left] <= arr[mid] -> {
+           if(value >= arr[left] && value <= arr[mid]) {
+               binarySearchCircularArray(arr, left, mid -1, value)
+           } else {
+               binarySearchCircularArray(arr, mid + 1, right, value)
+           }
+        }
+        arr[mid] <= arr[right] -> {
+            if(value >= arr[mid] && value <= arr[right]) {
+                binarySearchCircularArray(arr, mid + 1, right, value)
+            } else {
+                binarySearchCircularArray(arr, left, mid -1, value)
+            }
+        }
+        else -> {
+            -1
+        }
+    }
+}
+
