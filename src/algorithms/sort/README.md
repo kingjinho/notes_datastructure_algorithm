@@ -4,7 +4,7 @@
     - `to use more efficient algorithm`
     - to read better
 - Stability of sort algorithm
-    - Do data with same key change after sort
+    - a.k.a Do data with same key change after sort?
     - In general, it does not matter
         - People don't usually care about it
     - Some sort algorithms guarantee stability
@@ -40,8 +40,8 @@
 ## Bubble sort
 
 - The easiest
-- Compare adjacent two and sort
-- As iterating through an array, the biggest(or smallest) element will move to the end(or front)
+- `Compare adjacent two and sort`
+- `As iterating through an array, the biggest(or smallest) element will move to the end(or front)`
 - Stable
 
 ![bubble sort](./res/bubble-sort.gif)
@@ -50,17 +50,20 @@
 
 - The easiest
 - `Not stable because it can possibly move first index with same value to the last`
-- remember index and after each round, swap
+- `remember index and after each round, swap`
 - Select an index which contains smallest(or largest) and swap
 - space, time complexity: same as bubble
-  ![selection sort](./res/selection-sort.gif)
+
+![selection sort](./res/selection-sort.gif)
 
 ## Insertion sort
 
-- Go through the index that had previously visited
-    - While going through index, compare and swap
+- Go through the indices that had previously visited from big to small
+    - While going through indices(n-1 to 0), compare and swap
+    - if swap does not occur, skip all the following iteration
 - Stable
-  ![insertion sort](./res/insertion-sort.gif)
+
+![insertion sort](./res/insertion-sort.gif)
 
 ## Quick sort
 
