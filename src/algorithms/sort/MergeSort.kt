@@ -13,25 +13,24 @@ fun mergeSort(arr: IntArray): IntArray {
 
 private fun merge(arrLeft: IntArray, arrRight: IntArray): IntArray {
     val newArray = IntArray(arrLeft.size + arrRight.size)
-    var index = 0
     var leftCurIndex = 0
     var rightCurIndex = 0
 
-    while (index < newArray.size) {
+    for(i in newArray.indices) {
         if(leftCurIndex >= arrLeft.size) {
-            newArray[index] = arrRight[rightCurIndex]
+            newArray[i] = arrRight[rightCurIndex]
             rightCurIndex++
         } else if(rightCurIndex >= arrRight.size) {
-            newArray[index] = arrLeft[leftCurIndex]
+            newArray[i] = arrLeft[leftCurIndex]
             leftCurIndex++
         } else if (arrLeft[leftCurIndex] > arrRight[rightCurIndex]) {
-            newArray[index] = arrRight[rightCurIndex]
+            newArray[i] = arrRight[rightCurIndex]
             rightCurIndex++
         } else {
-            newArray[index] = arrLeft[leftCurIndex]
+            newArray[i] = arrLeft[leftCurIndex]
             leftCurIndex++
         }
-        index++
     }
+
     return newArray
 }
