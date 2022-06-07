@@ -80,4 +80,18 @@ class SortTest {
         assert(array[5] == 3)
         assert(array[6] == 1)
     }
+
+    @Test
+    fun `quick sort in descending`() {
+        var array = intArrayOf(3,6,4,7,8,9,1)
+        array = performQuickSortOld(array,0, array.size -1)
+        assert(array[0] == 1)
+        assert(array[1] == 3)
+        assert(array[2] == 4)
+        assert(array[3] == 6)
+        assert(array[4] == 7)
+        assert(array[5] == 8)
+        assert(array[6] == 9)
+    }
+
 }
