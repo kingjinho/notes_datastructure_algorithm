@@ -1,6 +1,7 @@
 package algorithms.sort
 
 import org.junit.Test
+import kotlin.random.Random
 
 class SortTest {
 
@@ -83,7 +84,10 @@ class SortTest {
 
     @Test
     fun `quick sort in descending`() {
-        var array = intArrayOf(3,6,4,7,8,9,1)
+        var array = IntArray(10) {
+            Random.nextInt(1, 10)
+        }
+        //var array = intArrayOf(3,6,4,7,8,9,1)
         array = performQuickSortOld(array,0, array.size -1)
         assert(array[0] == 1)
         assert(array[1] == 3)
@@ -94,4 +98,24 @@ class SortTest {
         assert(array[6] == 9)
     }
 
+    @Test
+    fun `merge sort in descending`() {
+        var array = IntArray(10) {
+            Random.nextInt(1, 10)
+        }
+        val copiedArray = array.copyOf().sortedArray()
+        //var array = intArrayOf(3,6,4,7,8,9,1)
+        array = mergeSort(array)
+        assert(array[0] == copiedArray[0])
+        assert(array[1] == copiedArray[1])
+        assert(array[2] == copiedArray[2])
+        assert(array[3] == copiedArray[3])
+        assert(array[4] == copiedArray[4])
+        assert(array[5] == copiedArray[5])
+        assert(array[6] == copiedArray[6])
+        assert(array[7] == copiedArray[7])
+        assert(array[8] == copiedArray[8])
+        assert(array[9] == copiedArray[9])
+
+    }
 }
