@@ -1,44 +1,37 @@
 package algorithms.sort
 
-fun performMergeSort(arr: IntArray, low: Int, high: Int): IntArray {
-    if (low < high && high - low > 0) {
-        var middle = low + (high - low) / 2
-        var arrLow = performMergeSort(arr.copyOfRange(low, middle + 1), 0, middle)
-        var arrHigh = performMergeSort(arr.copyOfRange(middle + 1, high + 1), 0, high - middle - 1)
+fun mergeSort(arr: IntArray): IntArray {
+    if (arr.size > 1) {
+        val mid = (0 + arr.lastIndex) / 2
+        val leftArr = mergeSort(arr.copyOfRange(0, mid + 1))
+        val rightArr = mergeSort(arr.copyOfRange(mid + 1, arr.lastIndex + 1))
 
-        return merge(arrLow, arrHigh)
+        return merge(leftArr, rightArr)
     }
     return arr
 }
 
-fun merge(arrLow: IntArray, arrHigh: IntArray): IntArray {
-    var curIdxForArrLow = 0
-    var curIdxForArrHigh = 0
-    var curIdxForArrResult = 0
+private fun merge(arrLeft: IntArray, arrRight: IntArray): IntArray {
+    val newArray = IntArray(arrLeft.size + arrRight.size)
+    var index = 0
+    var leftCurIndex = 0
+    var rightCurIndex = 0
 
-    var arrResult = IntArray(arrLow.size + arrHigh.size)
-
-    while (curIdxForArrLow < arrLow.size && curIdxForArrHigh < arrHigh.size) {
-        if (arrLow[curIdxForArrLow] < arrHigh[curIdxForArrHigh]) {
-            arrResult[curIdxForArrResult] = arrLow[curIdxForArrLow]
-            curIdxForArrLow++
+    while (index < newArray.size) {
+        if(leftCurIndex >= arrLeft.size) {
+            newArray[index] = arrRight[rightCurIndex]
+            rightCurIndex++
+        } else if(rightCurIndex >= arrRight.size) {
+            newArray[index] = arrLeft[leftCurIndex]
+            leftCurIndex++
+        } else if (arrLeft[leftCurIndex] > arrRight[rightCurIndex]) {
+            newArray[index] = arrRight[rightCurIndex]
+            rightCurIndex++
         } else {
-            arrResult[curIdxForArrResult] = arrLow[curIdxForArrHigh]
-            curIdxForArrHigh++
+            newArray[index] = arrLeft[leftCurIndex]
+            leftCurIndex++
         }
-        curIdxForArrResult++
+        index++
     }
-
-    if (curIdxForArrLow == arrLow.size) {
-        for (num in curIdxForArrHigh until arrHigh.size) {
-            arrResult[curIdxForArrResult] = arrHigh[curIdxForArrHigh]
-            curIdxForArrResult++
-        }
-    } else if (curIdxForArrHigh == arrLow.size) {
-        for (num in curIdxForArrLow until arrLow.size) {
-            arrResult[curIdxForArrResult] = arrHigh[curIdxForArrLow]
-            curIdxForArrResult++
-        }
-    }
-    return arrResult
+    return newArray
 }
