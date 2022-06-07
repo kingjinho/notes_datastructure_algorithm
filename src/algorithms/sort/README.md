@@ -71,3 +71,10 @@
 - unstable
 - divide-and-conquer
 - recursive
+
+## Merge sort
+
+- `Merge sorted arrays`
+- Should not sort original array
+- `divide array recursively until sub-array contains only 1 element, and merge`
+![merge sort](./res/merge-sort.gif)
