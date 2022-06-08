@@ -88,7 +88,7 @@ class SortTest {
             Random.nextInt(1, 10)
         }
         //var array = intArrayOf(3,6,4,7,8,9,1)
-        array = performQuickSortOld(array,0, array.size -1)
+        array = quickSort(array,0, array.size -1)
         assert(array[0] == 1)
         assert(array[1] == 3)
         assert(array[2] == 4)
@@ -105,7 +105,7 @@ class SortTest {
         }
         val copiedArray = array.copyOf().sortedArray()
         //var array = intArrayOf(3,6,4,7,8,9,1)
-        array = mergeSort(array)
+        array = mergeSortOld(array)
         assert(array[0] == copiedArray[0])
         assert(array[1] == copiedArray[1])
         assert(array[2] == copiedArray[2])
