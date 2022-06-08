@@ -1,17 +1,18 @@
 package algorithms.sort
 
-fun mergeSort(arr: IntArray): IntArray {
+
+fun mergeSortOld(arr: IntArray): IntArray {
     if (arr.size > 1) {
         val mid = (0 + arr.lastIndex) / 2
-        val leftArr = mergeSort(arr.copyOfRange(0, mid + 1))
-        val rightArr = mergeSort(arr.copyOfRange(mid + 1, arr.lastIndex + 1))
+        val leftArr = mergeSortOld(arr.copyOfRange(0, mid + 1))
+        val rightArr = mergeSortOld(arr.copyOfRange(mid + 1, arr.lastIndex + 1))
 
-        return merge(leftArr, rightArr)
+        return mergeOld(leftArr, rightArr)
     }
     return arr
 }
 
-private fun merge(arrLeft: IntArray, arrRight: IntArray): IntArray {
+private fun mergeOld(arrLeft: IntArray, arrRight: IntArray): IntArray {
     val newArray = IntArray(arrLeft.size + arrRight.size)
     var leftCurIndex = 0
     var rightCurIndex = 0
