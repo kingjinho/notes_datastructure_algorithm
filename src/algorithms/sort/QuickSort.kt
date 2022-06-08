@@ -1,12 +1,10 @@
 package algorithms.sort
 
-import kotlin.random.Random
-
-fun performQuickSortOld(arr: IntArray, left: Int, right: Int): IntArray {
+fun quickSort(arr: IntArray, left: Int, right: Int): IntArray {
     if (right > left) {
         val idxPivot = partitionLast(arr, left, right)
-        performQuickSortOld(arr, left, idxPivot - 1)
-        performQuickSortOld(arr, idxPivot + 1, right)
+        quickSort(arr, left, idxPivot - 1)
+        quickSort(arr, idxPivot + 1, right)
     }
     return arr
 }
