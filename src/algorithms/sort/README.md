@@ -21,12 +21,12 @@
 ## Algorithm comparison
 
 |sort|average|worst|memory|stability|
-|-------|-------|-----|------|---------|
+|--------|--------|-----|------|----------|
 |bubble|O(n^2)|O(n^2)|O(1) |O|
 |selection|O(n^2)|O(n^2)|O(1) |X|
 |insertion|O(n^2)|O(n^2)|O(1) |O|
 |quick|O(N logN)|O(n^2)|O(logN)-recursive(stack) |X|
-|merge|O(N logN)|O(N logN)|O(n)-heap|O|
+|merge|O(N logN)|O(N log N)|O(n)-heap|O|
 |heap|O(N logN)|O(N logN)|O(1)|X|
 
 ## What algorithm to choose
@@ -71,10 +71,13 @@
 - unstable
 - divide-and-conquer
 - recursive
+- Start from the pivot, values that are less than the pivot goes to left
+while the bigger goes to the right
 
 ## Merge sort
 
 - `Merge sorted arrays`
 - Should not sort original array
 - `divide array recursively until sub-array contains only 1 element, and merge`
+
 ![merge sort](./res/merge-sort.gif)
