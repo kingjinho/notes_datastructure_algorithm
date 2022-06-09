@@ -100,22 +100,23 @@ class SortTest {
 
     @Test
     fun `merge sort in descending`() {
-        var array = IntArray(10) {
+        val array = IntArray(10) {
             Random.nextInt(1, 10)
         }
-        val copiedArray = array.copyOf().sortedArray()
-        //var array = intArrayOf(3,6,4,7,8,9,1)
-        array = mergeSortOld(array)
-        assert(array[0] == copiedArray[0])
-        assert(array[1] == copiedArray[1])
-        assert(array[2] == copiedArray[2])
-        assert(array[3] == copiedArray[3])
-        assert(array[4] == copiedArray[4])
-        assert(array[5] == copiedArray[5])
-        assert(array[6] == copiedArray[6])
-        assert(array[7] == copiedArray[7])
-        assert(array[8] == copiedArray[8])
-        assert(array[9] == copiedArray[9])
+        val newArray = IntArray(10)
+        val sortedArray = array.sortedArray()
+        mergeSortNew(array, newArray, 0, array.lastIndex)
+        assert(sortedArray[0] == newArray[0])
+        assert(sortedArray[1] == newArray[1])
+        assert(sortedArray[2] == newArray[2])
+        assert(sortedArray[3] == newArray[3])
+        assert(sortedArray[4] == newArray[4])
+        assert(sortedArray[5] == newArray[5])
+        assert(sortedArray[6] == newArray[6])
+        assert(sortedArray[7] == newArray[7])
+        assert(sortedArray[8] == newArray[8])
+        assert(sortedArray[9] == newArray[9])
 
     }
+
 }
