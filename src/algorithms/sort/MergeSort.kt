@@ -35,3 +35,37 @@ private fun mergeOld(arrLeft: IntArray, arrRight: IntArray): IntArray {
 
     return newArray
 }
+
+fun mergeSortNew(arr: IntArray, newArr: IntArray, left: Int, right: Int){
+    if (right > left) {
+        val mid = (left + right) / 2
+        mergeSortNew(arr, newArr, left, mid)
+        mergeSortNew(arr, newArr, mid + 1, right)
+
+        mergeNew(arr, newArr, left, mid, right)
+    }
+}
+
+private fun mergeNew(arr: IntArray, newArr: IntArray, left: Int, mid: Int, right: Int){
+    var leftArrIndex = left
+    var rightArrIndex = mid + 1
+    for(i in left..right) {
+        if(leftArrIndex > mid) {
+            newArr[i] = arr[rightArrIndex]
+            rightArrIndex++
+        } else if(rightArrIndex > right) {
+            newArr[i] = arr[leftArrIndex]
+            leftArrIndex++
+        } else if(arr[leftArrIndex] > arr[rightArrIndex]) {
+            newArr[i] = arr[rightArrIndex]
+            rightArrIndex++
+        } else {
+            newArr[i] = arr[leftArrIndex]
+            leftArrIndex++
+        }
+    }
+
+    for(i in left..right) {
+        arr[i] = newArr[i]
+    }
+}
