@@ -71,8 +71,7 @@
 - unstable
 - divide-and-conquer
 - recursive
-- Start from the pivot, values that are less than the pivot goes to left
-while the bigger goes to the right
+- Start from the pivot, values that are less than the pivot goes to left while the bigger goes to the right
 
 ## Merge sort
 
@@ -81,3 +80,10 @@ while the bigger goes to the right
 - `divide array recursively until sub-array contains only 1 element, and merge`
 
 ![merge sort](./res/merge-sort.gif)
+
+## Heap sort
+
+- Sort using heap
+- Complete binary tree based
+- parent node is either bigger or smaller than the two children node
+    - heapify
