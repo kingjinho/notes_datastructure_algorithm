@@ -1,45 +1,38 @@
 package algorithms.sort
 
 //intArrayOf(1,5,9,4,3,8)
-fun performHeapSort(arr: IntArray, arrMaxIdx: Int) {
+fun heapSort(arr: IntArray) {
+    val length = arr.size
 
-    if (arr.size - 1 == arrMaxIdx || arrMaxIdx == 1) {
-        val idxParent = (arrMaxIdx - 1) / 2
-        if (arr[arrMaxIdx] > arr[idxParent]) {
-            val temp = arr[arrMaxIdx]
-            arr[arrMaxIdx] = arr[idxParent]
-            arr[idxParent] = temp
-        }
+    for (i in length / 2 - 1 downTo 0)
+        heapify(arr, length, i)
+
+    for (i in arr.lastIndex downTo 1) {
+        val temp = arr[0]
+        arr[0] = arr[i]
+        arr[i] = temp
+        heapify(arr, i, 0)
     }
-
-    for (i in arrMaxIdx - 2 downTo 1 step 2)
-        compareAndSwapNode(arr, (i - 1) / 2, i, i + 1)
-
-    val temp = arr[0]
-    arr[0] = arr[arrMaxIdx]
-    arr[arrMaxIdx] = temp
-
-    if (arrMaxIdx >= 2)
-        performHeapSort(arr, arrMaxIdx - 1)
 }
 
-fun compareAndSwapNode(arr: IntArray, idxParent: Int, idxLeftChild: Int, idxRightChild: Int) {
-    val valueAtParent = arr[idxParent]
-    val valueAtLeftChild = arr[idxLeftChild]
-    val valueAtRightChild = arr[idxRightChild]
+fun heapify(arr: IntArray, length: Int, idxParent: Int) {
 
-    if (valueAtParent < valueAtLeftChild && valueAtParent < valueAtRightChild) {
-        val tempLarger = if (valueAtLeftChild < valueAtRightChild) valueAtRightChild else valueAtLeftChild
-        arr[if (valueAtLeftChild < valueAtRightChild) idxRightChild else idxLeftChild] = valueAtParent
-        arr[idxParent] = tempLarger
+    var largest = idxParent
+    val left = (idxParent * 2) + 1
+    val right = (idxParent * 2) + 2
 
-    } else if (valueAtParent in valueAtLeftChild..valueAtRightChild) {
-        arr[idxParent] = valueAtRightChild
-        arr[idxRightChild] = valueAtParent
-
-    } else if (valueAtParent in valueAtRightChild..valueAtLeftChild) {
-        arr[idxParent] = valueAtLeftChild
-        arr[idxLeftChild] = valueAtParent
+    if (left < length && arr[left] > arr[largest]) {
+        largest = left
+    }
+    if (right < length && arr[right] > arr[largest]) {
+        largest = right
     }
 
+    if (largest != idxParent) {
+        val temp = arr[idxParent]
+        arr[idxParent] = arr[largest]
+        arr[largest] = temp
+
+        heapify(arr, length, largest) // top-down if changed
+    }
 }
