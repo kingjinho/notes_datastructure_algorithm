@@ -2,8 +2,8 @@
 
 ## Usage
 
-- find location to save data in hash table
-- Compare
+- find location(index) to save data in hash table
+- Compare(hashCode())
 - Save encrypted data
 - Depending on usage, hash can be different
 
@@ -27,7 +27,7 @@
 
 1. Efficiency
     - in general, Faster the better
-        - However, it depends on where we will apply hash algorithm 
+        - However, it depends on where we will apply hash algorithm
 2. Uniformity
     - distributed evenly
         - The more return value of hash algorithm distributed evenly, the better uniformity it has
@@ -42,5 +42,49 @@
             - `aim to maximize hash collision`
             - `similar data should collide: ABC, ABD`
         - Usage: Spam mail search, copyright check
-    
+
+## Non-cryptological hashing
+
+- hash function that is not safe for cryptography
+    - Hash table, Hash map
+    - unique id
+    - caching
+- How to find right hash function
+    - What and where to use hash function?
+    - What computation does hash function use, to ensure efficiency and uniformity?
+
+## Lose Lose hash
+
+- Not used in field
+- use of unsigned integer
+- Simple but frequent collision
+
+## MurMur
+
+- shift by 2
+- lots of xor and `overflow`
+
+## FNV-1 Hash
+
+- Much simpler than murmur 
+- xor and `overflow`
+
+## Checksum
+
+- `Check if there is a change in data`
+- Simple, consume less memory, easy to implement
+- sum up every data into one piece of data
+- can be similar to hash function, if it has fixed length of output
+- Usage
+  - Find errors in saved data, or sending data
+    - when save or sending data for the first time, compute checksum and save it
+    - When reading later, compute checksum again
+    - error if two checksums are different
+- Examples of checksum
+  - ISBN, ID, Credit card
+- 
+
+## CRC
+
+- 
 
