@@ -53,7 +53,7 @@
     - What and where to use hash function?
     - What computation does hash function use, to ensure efficiency and uniformity?
 
-## Lose Lose hash
+### Lose Lose hash
 
 - Not used in field
 - use of unsigned integer
@@ -82,9 +82,31 @@
     - error if two checksums are different
 - Examples of checksum
   - ISBN, ID, Credit card
-- 
+
+## Parity bit
+
+- an example of checksum
+- data unit = 1 bit + 7 bit of data
+- odd, even number parity
+  - number of 1 in 8 bits are either odd or even
+  - check data changes
 
 ## CRC
 
-- 
+- an Example of checksum
+- suffix can defer depending on degree of polynomial
+- x^3 + x + 1 = 1011
+
+---
+
+## Cryptographical Hashing Algorithm
+
+- an algorithm that is impossible to retrieve original value from hash value
+  - lots and lots of CPU power,
+  - one-way function
+- Used in security field
+- Example
+  - integrity check
+  - PoW
+  - Digital signage
 
