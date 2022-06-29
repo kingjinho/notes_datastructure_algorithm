@@ -110,3 +110,9 @@
   - PoW
   - Digital signage
 
+## Other characteristics of cryptographical hashing algorithm
+
+- pre-image resistance
+    - Should be difficult retrieve original data from hash value
+- second pre-image resistance
+    - Should be difficult to find other values that have a same hash value
