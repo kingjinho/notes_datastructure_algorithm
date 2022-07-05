@@ -31,7 +31,7 @@
 Block cipher
   - designated size of block(more than 64 bit) and encrypt
 
-## symmetric-key encryption
+# symmetric-key encryption
 
 - `same key for encryption and decryption`
 - `Sender & Receiver shares same key`
@@ -42,7 +42,51 @@ Block cipher
 - example
     - Wi-Fi password
   
-## asymmetric-key encryption
+## Symmetric-key encryption: AES(Advanced Encryption Standard)
+- `Block size: 128bit`
+- key length: 128, 192, 256 bit
+  - depending on that, number of rounds plain text goes through to cipher text can differ
+  - 128: 10 rounds
+  - 192: 12 rounds
+  - 256: 14 rounds
+- `How it works`
+  - `read and encrypt 16 bytes at a time`
+  - `place this 16 bytes by 4 * 4 arrays before encryption`
+  - round 0: add round key(key expansion)
+  - round 1 to n: replace bytes, move rows, mix columns and add round key
+  - final round: replace bytes, move rows and add round key
+  - `key in each step differs from others`
+  
+- key expansion
+  - 128 bit  
+  - create key based on symmetric key(128, 192, 256 bit)
+  - # of keys created = # of rounds + 1
+  - 
+1. Round 0: Add Round Key
+  - add round key to plain text
+  - add means xor
+  - use previous steps result as an input(same for the entire step)
+
+2. Round ~ to N: SubBytes
+  - replace each byte into another one
+    - with AES S-Box lookup table
+
+3. Round ~ to N: shift rows 
+   - bit shift to left
+   - 1st row: X
+   - 2nd row: by 1
+   - 3rd row: by 2
+   - 4rd row: by 3
+
+4. Round ~ to N: mix columns
+   - use array * vector (result in 4 bytes) + xor
+   - *
+     - when it comes to 1: just 1
+     - 2: bit shift left by 1 and 0x1B xor if highest bit is 1
+    
+  
+
+# asymmetric-key encryption
 
 - a.k.a public key encryption
 - `different keys for encryption and decryption`
