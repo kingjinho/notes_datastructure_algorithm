@@ -104,9 +104,9 @@ Block cipher
     - prevent others from reading message
 2. digital signature
     - Anyone can see my message, but proves right sender
-   
+
 3. Https
-   - asymmetric + symmetric
+    - asymmetric + symmetric
 4. git commit
 
 ## How it works
@@ -122,4 +122,14 @@ Block cipher
 
 - widely used
 - easy to create public and private key pair
-- 
+- private key is based on `very big prime number p,q`
+- public key: `p * q`
+- `if p and q are unknown, it's very hard to find private key from public key`
+- How to create RSA key
+    1. find very big prime number p and q
+        - Pick random number and determine whether it's prime number(miller rabin primality test)
+    2. create n by multiplying p and q
+    3. find e that has mathematical relationship
+    4. find d that has mathematical relationship
+-     
+  
