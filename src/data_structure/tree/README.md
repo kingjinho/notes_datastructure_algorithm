@@ -24,12 +24,23 @@
 13. Skew - every node has only one child (only left: left skew, right: right skew)
 
 
+## terms
+
+- Node: data stored
+- Root Node: first node
+- Leaf Node: end of the node
+- parent-children relationship
+- Depth: from selected node to root
+- `Height: maximum length of from node to leaf node`
+- subtree: tree under certain node
+    - recursive!
 
 
 ## Examples of trees
 - Family tree
 - Organization Structure
-- DOM tree in HTML  
+- DOM tree in HTML
+- JSON, YAML
 - Possible routes from home to destination
     - From home, we have 3 routes, and each route has another 2 routes, and each has another 5 routes to destination!
 
@@ -85,7 +96,7 @@ class BinaryTree<T>(private var data: T?) {
 - Binary Trees
 - Mainly used for searching
 - `Impose restriction` on what can be stored
-- O(log n) for wost case average search operation
+- O(log n) for wost case average algorithms.search operation
 
 
 - Property of Binary Search Trees (`Restriction`)
@@ -94,7 +105,7 @@ class BinaryTree<T>(private var data: T?) {
     - `Above does not mean that root has to be the biggest numbers!!!`
     - Has distinct value(what is duplicates?)
     - Meaning `this is a sorted data structure`
-    - Left and Right subtree should also be binary search trees
+    - Left and Right subtree should also be binary algorithms.search trees
     - `Same as regular binary trees, but this times a restricion on data`
     
 
@@ -107,7 +118,7 @@ class BinaryTree<T>(private var data: T?) {
 
 - Things to know about Binary Search Trees
     - Inorder traversal(LDR) of Binary Search tree :point_right: sorted list
-    - Skip searching when element we search is less than left or right trees
+    - Skip searching when element we algorithms.search is less than left or right trees
         - Saving time
     - Basic operations take time proportional to the height of the tree
 
@@ -131,6 +142,7 @@ class BinaryTree<T>(private var data: T?) {
             - The smallest from the right, the largest from the left are the ones that are close to
     parent the most
     
+
     
         
 
