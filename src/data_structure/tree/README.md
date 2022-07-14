@@ -143,7 +143,17 @@ class BinaryTree<T>(private var data: T?) {
     parent the most
     
 
-    
+## Difference between sorted array vs BST
+
+|sorted array| BST   |
+|------------|-------|
+|in general, sort before search|no need to sort|
+|newly added data may not be sorted|newly added data is placed in sorted position|
+|O(logN)after sort|O(logN)|
+|add, remove: O(N)| O(logN)|
+|Simple|Complex data structure|
+|one big chunk of memory|more than one chunk of memory|
+
         
 
 ### Links
