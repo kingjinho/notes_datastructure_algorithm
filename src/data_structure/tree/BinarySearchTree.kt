@@ -1,27 +1,23 @@
 package data_structure.tree
 
 
-class BinarySearchTree(private var data: Int?) {
+class BinarySearchTree(private var data: Int) {
 
     private var left: BinarySearchTree? = null
     private var right: BinarySearchTree? = null
 
     fun getData() = data
-    fun setData(value: Int?) {
+    fun setData(value: Int) {
         data = value
     }
 
     fun add(value: Int) {
-        if (data == null) {
-            data = value
-        } else {
-            add(this, value)
-        }
+        add(this, value)
     }
 
     private fun add(node: BinarySearchTree, value: Int) {
         when {
-            node.data!! > value -> {
+            node.data > value -> {
                 val left = node.left
                 if (left == null) {
                     node.left = BinarySearchTree((value))
@@ -29,7 +25,7 @@ class BinarySearchTree(private var data: Int?) {
                     add(node.left!!, value)
                 }
             }
-            node.data!! < value -> {
+            node.data < value -> {
                 val right = node.right
                 if (right == null) {
                     node.right = BinarySearchTree(value)
@@ -49,10 +45,10 @@ class BinarySearchTree(private var data: Int?) {
             return null
         }
 
-        if (node.data!! > value) {
+        if (node.data > value) {
             node.left = remove(node.left, value)
             return node
-        } else if (node.data!! < value) {
+        } else if (node.data < value) {
             node.right = remove(node.right, value)
             return node
         }
@@ -75,24 +71,21 @@ class BinarySearchTree(private var data: Int?) {
                     succ = succ.left
                 }
 
-                // Delete successor. Since successor
-                // is always left child of its parent
-                // we can safely make successor's right
-                // right child as left of its parent.
-                // If there is no succ, then assign
-                // succ->right to parent->right
+                /**
+                 * Delete successor.
+                 * Since successor is always left child of its parent, we can safely make successor's right
+                 * right child as left of its parent.
+                 * If there is no succ, then assign succ->right to parent->right
+                 */
 
                 if (parent !== node) parent?.left = succ?.right else parent.right = succ?.right
 
                 // Copy Successor Data to root
-
-                // Copy Successor Data to root
-                node.data = succ?.data
+                node.data = succ!!.data
 
                 return node
             }
         }
-
     }
 
     fun find(value: Int): BinarySearchTree? {
