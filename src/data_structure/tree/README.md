@@ -175,7 +175,30 @@ class BinaryTree<T>(private var data: T?) {
     - black depth: number of black nodes between root and a node
     - black height: number of black nodes between a node and a leaf
     - `the biggest depth is always less than 2 times the smallest depth`
- 
+
+3. Add & Remove
+    - `Adding and removing element could break its properties`
+    - After that, restructure tree to restore its properties
+    - not 100%, but it guarantees O(logN) in searching
+    - O(logN) for adding and removing element
+        - add or remove: O(logN): due to its assurance of depth
+        - tree rotation: O(1)
+        - change color: O(1)
+    - 4 adding strategies & 6 removing strategy
+    
+4. Add
+- add, just like BST
+- new element is always red
+- new element is always attached to the leaf
+- `recursive from leaf to root`
+    - tree rotation,
+    - change color
+    - differ by 4 situations(strategies)
+    
+
+
+    
+
 ### Links
 
 [Everything you need to know about tree data structures](https://www.freecodecamp.org/news/all-you-need-to-know-about-tree-data-structures-bceacb85490c/)
