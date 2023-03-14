@@ -1,12 +1,12 @@
 package algorithms.sort
 
 fun bubbleSortAsc(array: IntArray): IntArray {
-    for (i in array.indices) {
-        for (j in 0 until array.size - i - 1) {
-            if(array[j] > array[j + 1]) {
+    for(i in array.indices) { //define how many round it should go through
+        for(j in 0 until array.size - i- 1) { //actual comparison of adjacent elements
+            if(array[j] > array[j+1]) {
                 val temp = array[j]
-                array[j] = array[j + 1]
-                array[j + 1] = temp
+                array[j] = array[j+ 1]
+                array[j+1] = temp
             }
         }
     }
