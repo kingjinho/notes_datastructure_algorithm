@@ -1,7 +1,7 @@
-package algorithms.sort
-
+import algorithms.sort.*
 import org.junit.Test
 import kotlin.random.Random
+import kotlin.test.assertEquals
 
 class SortTest {
 
@@ -116,6 +116,24 @@ class SortTest {
         assert(sortedArray[7] == newArray[7])
         assert(sortedArray[8] == newArray[8])
         assert(sortedArray[9] == newArray[9])
+
+    }
+
+    @Test
+    fun `sorted of array of 4,2,7,1,3 with selection sort in ascending order returns 7 at index 4`() {
+
+        val arr = intArrayOf(4,2,7,1,3)
+        insertionSortAsc(arr)
+        assertEquals(7, arr[4])
+
+    }
+
+    @Test
+    fun `sorted of array of 4,2,7,1,3 with selection sort descending order returns 7 at index 4`() {
+
+        val arr = intArrayOf(4,2,7,1,3)
+        insertionSortDesc(arr)
+        assertEquals(7, arr[4])
 
     }
 

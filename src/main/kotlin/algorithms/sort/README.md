@@ -44,7 +44,7 @@
 - `As iterating through an array, the biggest(or smallest) element will move to the end(or front)`
 - Stable
 
-![bubble sort](./res/bubble-sort.gif)
+![bubble sort](res/bubble-sort.gif)
 
 ## Selection sort
 
@@ -54,7 +54,7 @@
 - Select an index which contains smallest(or largest) and swap
 - space, time complexity: same as bubble
 
-![selection sort](./res/selection-sort.gif)
+![selection sort](res/selection-sort.gif)
 
 ## Insertion sort
 
@@ -63,7 +63,7 @@
     - if swap does not occur, skip all the following iteration
 - Stable
 
-![insertion sort](./res/insertion-sort.gif)
+![insertion sort](res/insertion-sort.gif)
 
 ## Quick sort
 
@@ -79,7 +79,7 @@
 - Should not sort original array
 - `divide array recursively until sub-array contains only 1 element, and merge`
 
-![merge sort](./res/merge-sort.gif)
+![merge sort](res/merge-sort.gif)
 
 ## Heap sort
 

@@ -124,13 +124,13 @@ class BinarySearchTree(private var data: Int) {
 
     fun minValue(): Int {
         if (right == null && left == null) {
-            return data!!
+            return data
         }
         var node: BinarySearchTree? = this
         while (node?.left != null) {
             node = node.left
         }
-        return node?.left!!
+        return node!!.left?.data!!
     }
 
     fun inOrderTraversal() {

@@ -1,7 +1,5 @@
-package algorithms.search
-
-import org.junit.After
-import org.junit.Assert.*
+import algorithms.search.binarySearchCircularArray
+import algorithms.search.binarySearchRecursive
 import org.junit.Before
 import org.junit.Test
 

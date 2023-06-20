@@ -2,13 +2,9 @@ package algorithms.recursive
 
 fun main() {
 
-    val i = 100000
-    val factorialWithRecursive: Int = generalRecursive(i)
-    val factorialWithTailRecursive = tailRecursive(i, 0)
-
-    println(factorialWithRecursive)
-    println(factorialWithTailRecursive)
-
+    val array = intArrayOf(9,8,7,6,5)
+    algorithms.sort.quickSort(array, 0, 4)
+    println(array.toString())
 }
 
 private fun generalRecursive(num: Int): Int {

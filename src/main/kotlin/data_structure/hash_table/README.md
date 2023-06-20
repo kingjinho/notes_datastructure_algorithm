@@ -147,10 +147,10 @@
 
 
 # Internals of Hash Table in Java
-![member variables of hash table](./res/hash_table_member_variable.png)
+![member variables of hash table](res/hash_table_member_variable.png)
 
 - `Array of HashTable.Entry`, How does it look like?
-![hash table entry](./res/hash_table_entry.png)
+![hash table entry](res/hash_table_entry.png)
 - We can identify that it contains hash, key, value and next(meaning it's implemented in separate chaining)
 
 
